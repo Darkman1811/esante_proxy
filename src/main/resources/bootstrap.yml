@@ -1,0 +1,19 @@
+keycloak:
+  auth-server-url: http://${kecycloak_uri}:8090/auth/
+  realm: testrealm
+  public-client: 'false'
+  bearer-only: 'true'
+  resource: testclient
+  cors: 'true'
+spring:
+  application:
+    name: proxy
+  cloud:
+    config:
+      uri: http://${config_uri}:7888
+server:
+  port: '8081'
+eureka:
+  client:
+    serviceurl:
+      -defaultZone: http://${registry_uri}:8761/eureka
